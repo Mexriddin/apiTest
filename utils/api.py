@@ -7,8 +7,8 @@ key = "?key=qaclick123"  # params for request
 
 
 class Google_maps_api():
-    """Method for create new location"""
 
+    """Method for create new location"""
     @staticmethod
     def create_new_place():
         json_create_new_place = {
@@ -34,7 +34,6 @@ class Google_maps_api():
         return result
 
     """Method for check new location"""
-
     @staticmethod
     def get_new_place(place_id):
         path = "/maps/api/place/get/json"
@@ -45,7 +44,6 @@ class Google_maps_api():
         return result
 
     """Method for change new location"""
-
     @staticmethod
     def put_new_place(place_id):
         path = "/maps/api/place/update/json"
@@ -57,5 +55,18 @@ class Google_maps_api():
             "key": "qaclick123"
         }
         result = Http_methods.put(url, json_for_update_new_location)
+        print(result.text)
+        return result
+
+    """Method for delete new location"""
+    @staticmethod
+    def delete_new_place(place_id):
+        path = "/maps/api/place/delete/json"
+        url = base_url + path + key
+        print(url)
+        json_for_delete_new_location = {
+            "place_id": place_id
+        }
+        result = Http_methods.delete(url, json_for_delete_new_location)
         print(result.text)
         return result
