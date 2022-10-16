@@ -1,14 +1,14 @@
 from utils.http_methods import Http_methods
 
 base_url = "https://rahulshettyacademy.com"  # base_url
-key = "?key=qaclick123"                      # params for request
+key = "?key=qaclick123"  # params for request
 
 """Methods for testing GoogleMaps API"""
 
 
 class Google_maps_api():
-
     """Method for create new location"""
+
     @staticmethod
     def create_new_place():
         json_create_new_place = {
@@ -33,11 +33,29 @@ class Google_maps_api():
         print(result.text)
         return result
 
+    """Method for check new location"""
+
     @staticmethod
     def get_new_place(place_id):
         path = "/maps/api/place/get/json"
-        url = base_url + path + "&place_id=" + place_id
+        url = base_url + path + key + "&place_id=" + place_id
         print(url)
         result = Http_methods.get(url)
+        print(result.text)
+        return result
+
+    """Method for change new location"""
+
+    @staticmethod
+    def put_new_place(place_id):
+        path = "/maps/api/place/update/json"
+        url = base_url + path + key
+        print(url)
+        json_for_update_new_location = {
+            "place_id": place_id,
+            "address": "100 Lenina street, RU",
+            "key": "qaclick123"
+        }
+        result = Http_methods.put(url, json_for_update_new_location)
         print(result.text)
         return result
