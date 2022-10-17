@@ -1,5 +1,6 @@
 from utils.http_methods import Http_methods
 
+
 base_url = "https://rahulshettyacademy.com"  # base_url
 key = "?key=qaclick123"  # params for request
 
