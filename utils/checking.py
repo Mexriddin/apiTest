@@ -1,6 +1,5 @@
 """Methods for checked response"""
 import json
-
 from requests import Response
 
 
