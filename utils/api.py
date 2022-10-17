@@ -28,7 +28,7 @@ class Google_maps_api():
         }
         path = "/maps/api/place/add/json"
         url = base_url + path + key
-        print(base_url)
+        print(url)
         result = Http_methods.post(url=url, body=json_create_new_place)
         print(result.text)
         return result
